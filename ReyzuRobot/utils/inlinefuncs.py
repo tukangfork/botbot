@@ -24,25 +24,25 @@ from pyrogram.types import (
 )
 from search_engine_parser import GoogleSearch
 
-from PrimeMega import (
+from ReyzuRobot import (
     DEV_USERS,
     EVENT_LOGS,
     BOT_USERNAME,
     ubot2,
 )
-from PrimeMega import pbot as app
-from PrimeMega import arq
-from PrimeMega.services.keyboard import Ikb
-from PrimeMega.utils.pluginhelper import (
+from ReyzuRobot import pbot as app
+from ReyzuRobot import arq
+from ReyzuRobot.services.keyboard import Ikb
+from ReyzuRobot.utils.pluginhelper import (
     convert_seconds_to_minutes as time_convert,
     fetch,
 )
-from PrimeMega.services.tasks import _get_tasks_text, all_tasks, rm_task
-from PrimeMega.services.types import InlineQueryResultCachedDocument
-from PrimeMega.modules.info import get_chat_info, get_user_info
-from PrimeMega.modules.music import download_youtube_audio
-from PrimeMega.utils.functions import test_speedtest
-from PrimeMega.utils.pastebin import paste
+from ReyzuRobot.services.tasks import _get_tasks_text, all_tasks, rm_task
+from ReyzuRobot.services.types import InlineQueryResultCachedDocument
+from ReyzuRobot.modules.info import get_chat_info, get_user_info
+from ReyzuRobot.modules.music import download_youtube_audio
+from ReyzuRobot.utils.functions import test_speedtest
+from ReyzuRobot.utils.pastebin import paste
 
 MESSAGE_DUMP_CHAT = EVENT_LOGS
 
@@ -126,20 +126,20 @@ async def alive_function(answers):
     )
 
     msg = f"""
-**[ᴘʀɪᴍᴇ ᴍᴇɢᴀ](https://t.me/PrimeMegaBot):**
+**[Reyzu Robot](https://t.me/ReyzuRobot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `{ubot_state}`
 **Python:** `{pyver.split()[0]}`
 **Pyrogram:** `{pyrover}`
 **MongoDB:** `{mongover}`
 **Platform:** `{sys.platform}`
-**Profiles:** [BOT](t.me/{BOT_USERNAME}) | [UBOT](t.me/Bukan_guudlooking)
+**Profiles:** [BOT](t.me/{BOT_USERNAME}) | [UBOT](t.me/ReyzuRobot)
 """
     answers.append(
         InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/74820c5c29d87eca403e0.jpg",
+            thumb_url="https://telegra.ph/file/5ffffa59ab0d812b81734.jpg",
             input_message_content=InputTextMessageContent(
                 msg, disable_web_page_preview=True
             ),
