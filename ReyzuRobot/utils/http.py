@@ -1,6 +1,6 @@
 from asyncio import gather
 
-from PrimeMega import aiohttpsession as session
+from ReyzuRobot import aiohttpsession as session
 
 
 async def get(url: str, *args, **kwargs):
