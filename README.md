@@ -40,7 +40,7 @@ screen -S ReyzuRobot
 ```
 2. Clone Github
 ```console
-git clone https://github.com/Reyzuuu/ReyzuRobot && cd ReyzuRobot
+git clone https://github.com/forktukang/ReyzuRobot && cd ReyzuRobot
 ```
 3. Install Requirement
 ```console
