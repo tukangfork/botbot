@@ -34,7 +34,7 @@
 <br>
     
 ### Tutorial Deploy on VPS
-1. Buat Screen
+1. Creat Screen
 ```console
 screen -S ReyzuRobot
 ```
@@ -42,14 +42,19 @@ screen -S ReyzuRobot
 ```console
 git clone https://github.com/Reyzuuu/ReyzuRobot && cd ReyzuRobot
 ```
+3. Install Requirement
 ```console
 pip3 install -U -r requirements.txt
 ```
+4. Cp Sample.env
+```console
 cp reyzu.env .env
 ```
+5. ctrl+i (edit env) - ctrl+c - :wq  
 ```console
 vi .env
 ```
+6. Bash Start
 ```console
 bash start
 ```
