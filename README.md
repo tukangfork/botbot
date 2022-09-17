@@ -34,13 +34,23 @@
 <br>
     
 ### Tutorial Deploy on VPS
+1. Buat Screen
 ```console
-screen -S PrimeMega
-git clone https://github.com/Reyzuuu/ReyzuRobot
-cd ReyzuRobot
+screen -S ReyzuRobot
+```
+2. Clone Github
+```console
+git clone https://github.com/Reyzuuu/ReyzuRobot && cd ReyzuRobot
+```
+```console
 pip3 install -U -r requirements.txt
+```
 cp reyzu.env .env
-nano .env
+```
+```console
+vi .env
+```
+```console
 bash start
 ```
 
