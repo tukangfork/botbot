@@ -13,9 +13,9 @@ import speedtest
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from pyrogram.types import Message
 
-from PrimeMega import aiohttpsession as aiosession
-from PrimeMega.ex_plugins.dbfunctions import start_restart_stage
-from PrimeMega.utils.http import get, post
+from ReyzuRobot import aiohttpsession as aiosession
+from ReyzuRobot.ex_plugins.dbfunctions import start_restart_stage
+from ReyzuRobot.utils.http import get, post
 
 
 async def restart(m: Message):
