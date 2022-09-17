@@ -2,8 +2,8 @@ from asyncio import Lock, create_task
 from time import time
 from pyrogram import filters
 from pyrogram.types import Message
-from PrimeMega import BOT_ID, BOT_USERNAME, DEV_USERS
-from PrimeMega.services.sections import bold, section, w
+from ReyzuRobot import BOT_ID, BOT_USERNAME, DEV_USERS
+from ReyzuRobot.services.sections import bold, section, w
 
 tasks = {}
 TASKS_LOCK = Lock()
