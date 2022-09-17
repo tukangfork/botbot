@@ -50,7 +50,7 @@ pip3 install -U -r requirements.txt
 ```console
 cp reyzu.env .env
 ```
-5. ctrl+i (edit env) - ctrl+c - :wq  
+5. ctrl+i (edit env) - ctrl+c (done env) - :wq  (save env)
 ```console
 vi .env
 ```
