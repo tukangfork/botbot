@@ -17,15 +17,15 @@ from ReyzuRobot.modules.disable import DisableAbleCommandHandler
 __help__ = """ 
 Use this module to translate stuff!
 *Commands :*
-❧ /tl (or /tr) - as a reply to a message, translates it to English.
-❧ /tl <lang> - translates to <lang>.
-ex : /tl id - translates to Indonesia.
-❧ /tl <source>//<dest> - translates from <source> to <lang>.
-ex :  /tl ja//en - translates from Japanese to English.
-❧ /langs - get a list of supported languages for translation.
+❧ `/tl` (or /tr) - as a reply to a message, translates it to English.
+❧ `/tl` <lang> - translates to <lang>.
+ex : `/tl id` - translates to Indonesia.
+❧ `/tl` <source>//<dest> - translates from <source> to <lang>.
+ex :  `/tl` ja//en - translates from Japanese to English.
+❧ `/langs` - get a list of supported languages for translation.
 I can convert text to voice and voice to text..
-❧ /tts <lang code> - Reply to any message to get text to speech output.
-❧ /stt - Type in reply to a voice message (support english only) to extract text from it.
+❧ `/tts` <lang code> - Reply to any message to get text to speech output.
+❧ `/stt` - Type in reply to a voice message (support english only) to extract text from it.
 """
 
 __mod_name__ = "Translator"
