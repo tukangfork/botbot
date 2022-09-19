@@ -607,7 +607,7 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-❧ /filters - List all active filters saved in the chat.
+❧ `/filters` - List all active filters saved in the chat.
 
 *Admin only :*
 ❧ `/filter` <keyword> <reply message>*:* Add a filter to this chat. The bot will now reply that message whenever 'keyword'\
@@ -623,7 +623,7 @@ Reply 2
 %%%
 Reply 3`
 
-❧ /stop <filter keyword> *:* Stop that filter.
+❧ `/stop` <filter keyword> *:* Stop that filter.
 
 *Chat creator only :*
 
