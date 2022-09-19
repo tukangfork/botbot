@@ -934,7 +934,7 @@ __help__ = """
 ❧ `/pinned` - to get the current pinned message.
 
 *The Following Commands are Admins only:* 
-❧ `/pin` - silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users.
+❧ `/pin` - silently pins the message replied to - add loud or notify to give notifs to users.
 ❧ `/unpin` - unpins the currently pinned message.
 ❧ `/invitelink` - gets invitelink.
 ❧ `/promote` - promotes the user replied to.
