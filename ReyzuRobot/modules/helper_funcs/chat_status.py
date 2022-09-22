@@ -114,8 +114,8 @@ def dev_plus(func):
                 pass
         else:
             update.effective_message.reply_text(
-                "This is a developer restricted command."
-                " You do not have permissions to run this.",
+                "Ini adalah perintah yang dibatasi pengembang."
+                "Anda tidak memiliki izin untuk menjalankan ini.",
             )
 
     return is_dev_plus_func
@@ -139,7 +139,7 @@ def sudo_plus(func):
                 pass
         else:
             update.effective_message.reply_text(
-                "Who dis non-admin telling me what to do? You want a punch?",
+                "Siapa ini non-admin? Anda ingin ditendang",
             )
 
     return is_sudo_plus_func
@@ -178,7 +178,7 @@ def whitelist_plus(func):
         if user and is_whitelist_plus(chat, user.id):
             return func(update, context, *args, **kwargs)
         update.effective_message.reply_text(
-            f"You don't have access to use this.\nVisit @{SUPPORT_CHAT}",
+            f"Anda tidak memiliki akses untuk menggunakan ini.\nKunjungi @{SUPPORT_CHAT}",
         )
 
     return is_whitelist_plus_func
@@ -202,7 +202,7 @@ def user_admin(func):
                 pass
         else:
             update.effective_message.reply_text(
-                "Who dis non-admin telling me what to do? You want a punch?",
+                "Siapa ini non-admin? Anda ingin ditendang",
             )
 
     return is_admin
@@ -277,9 +277,9 @@ def bot_can_delete(func):
         message_chat_title = update.effective_message.chat.title
 
         if update_chat_title == message_chat_title:
-            cant_delete = "I can't delete messages here!\nMake sure I'm admin and can delete other user's messages."
+            cant_delete = "Saya tidak dapat menghapus pesan di sini!\nPastikan saya admin dan dapat menghapus pesan pengguna lain."
         else:
-            cant_delete = f"I can't delete messages in <b>{update_chat_title}</b>!\nMake sure I'm admin and can delete other user's messages there."
+            cant_delete = f"Saya tidak dapat menghapus pesan di <b>{update_chat_title}</b>!\nPastikan saya admin dan dapat menghapus pesan pengguna lain di sana."
 
         if can_delete(chat, bot.id):
             return func(update, context, *args, **kwargs)
@@ -298,10 +298,10 @@ def can_pin(func):
 
         if update_chat_title == message_chat_title:
             cant_pin = (
-                "I can't pin messages here!\nMake sure I'm admin and can pin messages."
+                "Saya tidak dapat menyematkan pesan di sini!\nPastikan saya admin dan dapat menyematkan pesan."
             )
         else:
-            cant_pin = f"I can't pin messages in <b>{update_chat_title}</b>!\nMake sure I'm admin and can pin messages there."
+            cant_pin = f"Saya tidak bisa menyematkan pesan di <b>{update_chat_title}</b>!\nPastikan saya admin dan dapat menyematkan pesan di sana."
 
         if chat.get_member(bot.id).can_pin_messages:
             return func(update, context, *args, **kwargs)
@@ -319,11 +319,11 @@ def can_promote(func):
         message_chat_title = update.effective_message.chat.title
 
         if update_chat_title == message_chat_title:
-            cant_promote = "I can't promote/demote people here!\nMake sure I'm admin and can appoint new admins."
+            cant_promote = "Saya tidak dapat mempromosikan/menurunkan orang di sini!\nPastikan saya admin dan dapat menunjuk admin baru."
         else:
             cant_promote = (
-                f"I can't promote/demote people in <b>{update_chat_title}</b>!\n"
-                f"Make sure I'm admin there and can appoint new admins."
+                f"Saya tidak dapat mempromosikan/menurunkan orang di <b>{update_chat_title}</b>!\n"
+                f"Pastikan saya admin disana dan bisa menunjuk admin baru."
             )
 
         if chat.get_member(bot.id).can_promote_members:
@@ -342,7 +342,7 @@ def can_restrict(func):
         message_chat_title = update.effective_message.chat.title
 
         if update_chat_title == message_chat_title:
-            cant_restrict = "I can't restrict people here!\nMake sure I'm admin and can restrict users."
+            cant_restrict = "Saya tidak bisa membatasi orang di sini!\nPastikan saya admin dan dapat membatasi pengguna."
         else:
             cant_restrict = f"I can't restrict people in <b>{update_chat_title}</b>!\nMake sure I'm admin there and can restrict users."
 
