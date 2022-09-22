@@ -8,134 +8,134 @@ from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
 from sqlalchemy.sql.sqltypes import BigInteger
 
 DEFAULT_WELCOME_MESSAGES = [
-    "{first} is here!",  # Discord welcome messages copied
-    "Ready player {first}",
-    "Genos, {first} is here.",
-    "A wild {first} appeared.",
-    "{first} came in like a Lion!",
-    "{first} has joined your party.",
-    "{first} just joined. Can I get a heal?",
-    "{first} just joined the chat - asdgfhak!",
-    "{first} just joined. Everyone, look busy!",
-    "Welcome, {first}. Stay awhile and listen.",
-    "Welcome, {first}. We were expecting you ( ͡° ͜ʖ ͡°)",
-    "Welcome, {first}. We hope you brought pizza.",
-    "Welcome, {first}. Leave your weapons by the door.",
-    "Swoooosh. {first} just landed.",
-    "Brace yourselves. {first} just joined the chat.",
-    "{first} just joined. Hide your bananas.",
-    "{first} just arrived. Seems OP - please nerf.",
-    "{first} just slid into the chat.",
-    "A {first} has spawned in the chat.",
-    "Big {first} showed up!",
-    "Where’s {first}? In the chat!",
-    "{first} hopped into the chat. Kangaroo!!",
-    "{first} just showed up. Hold my beer.",
-    "Challenger approaching! {first} has appeared!",
-    "It's a bird! It's a plane! Nevermind, it's just {first}.",
-    r"It's {first}! Praise the sun! \o/",
-    "Never gonna give {first} up. Never gonna let {first} down.",
-    "Ha! {first} has joined! You activated my trap card!",
-    "Hey! Listen! {first} has joined!",
-    "We've been expecting you {first}",
-    "It's dangerous to go alone, take {first}!",
-    "{first} has joined the chat! It's super effective!",
-    "Cheers, love! {first} is here!",
-    "{first} is here, as the prophecy foretold.",
-    "{first} has arrived. Party's over.",
-    "{first} is here to kick butt and chew bubblegum. And {first} is all out of gum.",
-    "Hello. Is it {first} you're looking for?",
-    "{first} has joined. Stay awhile and listen!",
-    "Roses are red, violets are blue, {first} joined this chat with you",
-    "Welcome {first}, Avoid Punches if you can!",
-    "It's a bird! It's a plane! - Nope, its {first}!",
-    "{first} Joined! - Ok.",  # Discord welcome messages end.
-    "All Hail {first}!",
-    "Hi, {first}. Don't lurk, only Villans do that.",
-    "{first} has joined the battle bus.",
-    "A new Challenger enters!",  # Tekken
-    "Ok!",
-    "{first} just fell into the chat!",
-    "Something just fell from the sky! - oh, its {first}.",
-    "{first} Just teleported into the chat!",
-    "Hi, {first}, show me your Hunter License!",  # Hunter Hunter
-    "I'm looking for Garo, oh wait nvm it's {first}.",  # One Punch man s2
-    "Welcome {first}, leaving is not an option!",
-    "Run Forest! ..I mean...{first}.",
-    "{first} do 100 push-ups, 100 sit-ups, 100 squats, and 10km running EVERY SINGLE DAY!!!",  # One Punch ma
-    "Huh?\nDid someone with a disaster level just join?\nOh wait, it's just {first}.",  # One Punch ma
-    "Hey, {first}, ever heard the King Engine?",  # One Punch ma
-    "Hey, {first}, empty your pockets.",
-    "Hey, {first}!, are you strong?",
-    "Call the Avengers! - {first} just joined the chat.",
-    "{first} joined. You must construct additional pylons.",
-    "Ermagherd. {first} is here.",
-    "Come for the Snail Racing, Stay for the Chimichangas!",
-    "Who needs Google? You're everything we were searching for.",
-    "This place must have free WiFi, cause I'm feeling a connection.",
-    "Speak friend and enter.",
-    "Welcome you are",
-    "Welcome {first}, your princess is in another castle.",
-    "Hi {first}, welcome to the dark side.",
-    "Hola {first}, beware of people with disaster levels",
-    "Hey {first}, we have the droids you are looking for.",
-    "Hi {first}\nThis isn't a strange place, this is my home, it's the people who are strange.",
-    "Oh, hey {first} what's the password?",
-    "Hey {first}, I know what we're gonna do today",
-    "{first} just joined, be at alert they could be a spy.",
-    "{first} joined the group, read by Mark Zuckerberg, CIA and 35 others.",
-    "Welcome {first}, watch out for falling monkeys.",
-    "Everyone stop what you’re doing, We are now in the presence of {first}.",
-    "Hey {first}, do you wanna know how I got these scars?",
-    "Welcome {first}, drop your weapons and proceed to the spy scanner.",
-    "Stay safe {first}, Keep 3 meters social distances between your messages.",  # Corona memes lmao
-    "Hey {first}, Do you know I once One-punched a meteorite?",
-    "You’re here now {first}, Resistance is futile",
-    "{first} just arrived, the force is strong with this one.",
-    "{first} just joined on president’s orders.",
-    "Hi {first}, is the glass half full or half empty?",
-    "Yipee Kayaye {first} arrived.",
-    "Welcome {first}, if you’re a secret agent press 1, otherwise start a conversation",
-    "{first}, I have a feeling we’re not in Kansas anymore.",
-    "They may take our lives, but they’ll never take our {first}.",
-    "Coast is clear! You can come out guys, it’s just {first}.",
-    "Welcome {first}, pay no attention to that guy lurking.",
-    "Welcome {first}, may the force be with you.",
-    "May the {first} be with you.",
-    "{first} just joined. Hey, where's Perry?",
-    "{first} just joined. Oh, there you are, Perry.",
-    "Ladies and gentlemen, I give you ...  {first}.",
-    "Behold my new evil scheme, the {first}-Inator.",
-    "Ah, {first} the Platypus, you're just in time... to be trapped.",
-    "{first} just arrived. Diable Jamble!",  # One Piece Sanji
-    "{first} just arrived. Aschente!",  # No Game No Life
+    "{first} disini!",  # Discord welcome messages copied
+    "Kamu siap {first}",
+    "Teman-teman, {first} telah hadir.",
+    "Hai {first}, muncullah.",
+    "{first} datang seperti Singa.",
+    "{first} telah bergabung dengan party kita.",
+    "{first} baru bergabung. Beri saya motivasi?",
+    "{first} baru saja bergabung dengan obrolan ngawur",
+    "{first} baru bergabung. Semua anggota terlihat sibuk!",
+    "Welcome, {first}. Tinggal sebentar dan dengarkan.",
+    "Welcome, {first}. Kami mengharapkanmu ( ͡° ͜ʖ ͡°)",
+    "Welcome, {first}. Kami harap Anda membawa pizza.",
+    "Welcome, {first}. Tinggalkan sendalmu di dekat pintu.",
+    "Swoooosh. {first} Baru saja mendarat.",
+    "Kuatkan dirimu. {first} baru saja bergabung dengan obrolan.",
+    "{first} baru bergabung. Sembunyikan pisang Anda.",
+    "{first} baru saja tiba. Sepertinya OP - tolong nerf.",
+    "{first} baru masuk ke chat.",
+    "Eh {first} telah muncul di obrolan.",
+    "Hai {first} munculah!",
+    "Dimana {first}? Di grup ini?",
+    "{first} nimbrunglah disini!",
+    "{first} just baru saja muncul. Tolong non-aktifkan saya.",
+    "Penantang mendekat! {first} telah muncul!",
+    "Ini burung! Ini adalah pesawat! Tidak apa-apa, hanya saja {first}.",
+    "Ini {first}! Memuji matahari! \o/",
+    "Tidak akan pernah menyerah pada {first}. Tidak akan pernah mengecewakan {first}.",
+    "Ha! {first} telah bergabung! Hai {firs}!",
+    "Lihatlah kawan! {first} telah datang!",
+    "Kami telah menunggumu {first}",
+    "Berbahaya pergi sendiri, ambil {first}!",
+    "{first} telah bergabung dengan obrolan! Ini sangat efektif!",
+    "Salam sayang! {first} telah disini!",
+    "{first} ada di sini, seperti yang dinubuatkan.",
+    "{first} telah tiba. Yuk kita tinggal tidur.",
+    "{first} Disini nimbrung ajah. Orangnya baik-baik",
+    "Hai. Apakah itu {first} yang kucari selama ini?",
+    "{first} telah bergabung. Ayo kita lanjut tidur!",
+    "Mawar itu merah, violet itu biru, {first} I love you",
+    "Welcome {first}, coba banned saya, ckckckck!",
+    "Ini burung! Ini adalah pesawat! - Tidak, itu {first}!",
+    "{first} lagi galau! - Ok.",  # Discord welcome messages end.
+    "Assalamu'alaikum {first}!",
+    "Hai, {first}. Jangan cuma nyimak, ayo ikut nimbrung",
+    "{first} kamu sudah ketinggalan party",
+    "Pendatang baru nih!",  # Tekken
+    "Ok {firs} silahkan disimak!",
+    "{first} baru saja masuk ke obrolan!",
+    "Sesuatu baru saja jatuh dari langit! - Oh itu {first}.",
+    "{first} Baru saja dideportasi ke sini!",
+    "Hai, {first}, tunjukkan kartu pengenal anda",  # Hunter Hunter
+    "Saya mencari jodoh, apakah itu {first}?.",  # One Punch man s2
+    "Welcome {first}, Pergi bukanlah pilihan!",
+    "Hai! ..Welcome {first}.",
+    "{first} lakukan 100 push-up, 100 sit-up, 100 squat, dan lari 10km SETIAP HARI!!!",  # One Punch ma
+    "Huh?\nSeorang perusuh baru saja bergabung?\oh bukan, dia hanyalah {first}.",  # One Punch ma
+    "Hey, {first}, apa kamu lapar?",  # One Punch ma
+    "Hey, {first}, berikan dompetmu!.",
+    "Hey, {first}!, apa kamu kuat?",
+    "Panggil owner! - {first} telah bergabung ke grup.",
+    "{first} bergabung. kamu harus nyawer lagu buat kita semua.",
+    "Lagi mager. {first} apa kamu mager?.",
+    "Lagi malas nyapa orang, belom digaji aku bulan ini",
+    "Kamu belum mandi?.",
+    "Tempat ini harus memiliki WiFi gratis, karena saya merasakan koneksi.",
+    "Bicaralah kawan, nimbrung saja",
+    "Welcome {first}",
+    "Welcome {first}, pacarmu tidak ada disini",
+    "Hai {first}, selamat Datang di grup yang isinya orang gabut semua.",
+    "Hola {first}, tetaplah waspada, terutama sama crocodile",
+    "Hey {first}, beri kami sedikit kisah tentang anda",
+    "Hai {first}\nIni bukan tempat yang aneh, grup ini orang-orangnya yang aneh.",
+    "Oh, hey {first} apa pasdwor wi-fi mu?",
+    "Hey {first}, Aku tahu apa yang akan kita lakukan hari ini",
+    "{first} baru bergabung, waspada bisa jadi doi mata-mata.",
+    "{first} bergabung dengan grup, dibaca oleh Mark Zuckerberg, CIA dan 35 lainnya.",
+    "Welcome {first}, kamu tau monyet, diatas kita ini monyet.",
+    "Hai semua mari kita sambut {first} yang baru bergabung.",
+    "Hai {first}, Anda ingin tahu bagaimana saya mendapatkan bekas luka ini?",
+    "Welcome {first}, lepas dulu maskermu, ayo kita vc",
+    "Jaga diri {first}, Jaga jarak dengan para crocodile di grup ini",  # Corona memes lmao
+    "Hai {first}, apa kamu suka nasi padang?",
+    "Kamu disini sekarang {first}, keluarkan semua unek-unekmu",
+    "{first} baru saja bergabung, sepertinya dia butuh teman curhat",
+    "{first} baru bergabung, sepertinya perintah Pak Presiden",
+    "Hai {first}, curhat aja jangan malu-malu?",
+    "Yipee Kayaye {first} masuk grup.",
+    "Welcome {first}, jika Anda seorang agen rahasia, tekan 1, jika tidak, mulailah percakapan",
+    "{first}, Saya merasa kamu sendang lelah, ceritakan sedikit kisahmu disini",
+    "Orang di grup ini mungkin pada sok asik, tapi sepertinya {first} beneran asik.",
+    "Welcome {first}. Ngopilah dulu",
+    "Welcome {first}, Istirahatlah dulu sejenak.",
+    "Welcome {first}, semoga kamu bahagia selalu",
+    "Semoga {first} orang yang kita cari selama ini.",
+    "{first} baru bergabung. Hei, di mana owner, buatkan kopi dulu anggota baru?",
+    "{first} telah bergabung.",
+    "Tuan-tuan dan nyonya-nyonya, saya berikan kepada Anda ...  {first}.",
+    "Lihatlah semua kelakuan anggota grup ini, {first} ayo nimbrung.",
+    "Ah, {first} telah bergabung, tapi grupnya tetap sepi.",
+    "{first} baru saja bergabung, tolong sapa saya mau istirahat dulu",  # One Piece Sanji
+    "{first} baru bergabung, belikan dulu somay dia!",  # No Game No Life
     "{first} say Aschente to swear by the pledges.",  # No Game No Life
-    "{first} just joined. El Psy congroo!",  # Steins Gate
-    "Irasshaimase {first}!",  # weeabo shit
-    "Hi {first}, what is 1000-7?",  # tokyo ghoul
-    "Come. I don't want to destroy this place",  # hunter x hunter
-    "I... am... Whitebeard!...wait..wrong anime.",  # one Piece
-    "Hey {first}...have you ever heard these words?",  # BNHA
-    "Can't a guy get a little sleep around here?",  # Kamina Falls – Gurren Lagann
-    "It's time someone put you in your place, {first}.",  # Hellsing
-    "Unit-01's reactivated..",  # Neon Genesis: Evangelion
-    "Prepare for trouble...And make it double",  # Pokemon
-    "Hey {first}, are You Challenging Me?",  # Shaggy
-    "Oh? You're Approaching Me?",  # jojo
+    "{first} telah bergabung, kampu bukan psikopat kan?!",  # Steins Gate
+    "Inilah dia dukun cabul kita... {first}!",  # weeabo shit
+    "Hai {first}, 1000-7 berapa?",  # tokyo ghoul
+    "Hai...",  # hunter x hunter
+    "Hai {first} salam kenal.",  # one Piece
+    "Hey {first}...pernahkah kamu mendengar kata-kata indah?",  # BNHA
+    "Tidak bisakah aku tidur sebentar di sekitar sini??",  # Kamina Falls – Gurren Lagann
+    "Bangunlah kurangi rebahan {first}.",  # Hellsing
+    "Kepasar beli mangga, ayo nimbrung aja..",  # Neon Genesis: Evangelion
+    "Hai, welcome {first}",  # Pokemon
+    "Hey {first}, Apakah Anda Menantang Saya?",  # Shaggy
+    "Hah? Kamu belum mandi ya {first}?",  # jojo
     "Ho… mukatta kuruno ka?",  # jojo jap ver
-    "I can't beat the shit out of you without getting closer",  # jojo
-    "Ho ho! Then come as close as you'd like.",  # jojo
+    "Halo {first} mangga kalo mau cerita, cerita aja",  # jojo
+    "Ho ho! {first} nyari apa kamu disini.",  # jojo
     "Hoho! Dewa juubun chikazukanai youi",  # jojo jap ver
-    "Guess who survived his time in Hell, {first}.",  # jojo
-    "How many loaves of bread have you eaten in your lifetime?",  # jojo
-    "What did you say? Depending on your answer, I may have to kick your ass!",  # jojo
-    "Oh? You're approaching me? Instead of running away, you come right to me? Even though your grandfather, Joseph, told you the secret of The World, like an exam student scrambling to finish the problems on an exam until the last moments before the chime?",  # jojo
+    "Welcome, {first}. Jangan sungkan untuk cerita ya",  # jojo
+    "Berapa banyak roti yang telah Anda makan dalam hidup Anda?",  # jojo
+    "Kamu sudah makan belum {firs}!",  # jojo
+    "Siapa lagi ini, halo {first} salam kenal.",  # jojo
     "Rerorerorerorerorero.",  # jojo
-    "{first} just warped into the group!",
+    "{first} baru saja masuk ke grup.",
     "I..it's..it's just {first}.",
     "Sugoi, Dekai. {first} Joined!",
-    "{first}, do you know gods of death love apples?",  # Death Note owo
-    "I'll take a potato chip.... and eat it",  # Death Note owo
+    "{first}, apakah Anda tahu dewa kematian menyukai apel?",  # Death Note owo
+    "Tunggu sebentar {first}. Saya akan mengambil keripik kentang .... dan memakannya",  # Death Note owo
     "Oshiete oshiete yo sono shikumi wo!",  # Tokyo Ghoul
     "Kaizoku ou ni...nvm wrong anime.",  # op
     "{first} just joined! Gear.....second!",  # Op
