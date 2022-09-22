@@ -8,11 +8,11 @@ from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
 from sqlalchemy.sql.sqltypes import BigInteger
 
 DEFAULT_WELCOME_MESSAGES = [
-    "{first} disini!",  # Discord welcome messages copied
-    "Kamu siap {first}",
+    "{first} disini, ayo nimbrung kawan!",  # Discord welcome messages copied
+    "Kamu siap {first}. Luapkan semua unek-unekmu disini",
     "Teman-teman, {first} telah hadir.",
-    "Hai {first}, muncullah.",
-    "{first} datang seperti Singa.",
+    "Hai {first}, muncullah, ikut nimbrung yuk.",
+    "{first} datang seperti Singa pergi seperti Puma.",
     "{first} telah bergabung dengan party kita.",
     "{first} baru bergabung. Beri saya motivasi?",
     "{first} baru saja bergabung dengan obrolan ngawur",
@@ -136,27 +136,27 @@ DEFAULT_WELCOME_MESSAGES = [
     "Sugoi, Dekai. {first} Joined!",
     "{first}, apakah Anda tahu dewa kematian menyukai apel?",  # Death Note owo
     "Tunggu sebentar {first}. Saya akan mengambil keripik kentang .... dan memakannya",  # Death Note owo
-    "Oshiete oshiete yo sono shikumi wo!",  # Tokyo Ghoul
-    "Kaizoku ou ni...nvm wrong anime.",  # op
-    "{first} just joined! Gear.....second!",  # Op
-    "Omae wa mou....shindeiru",
-    "Hey {first}, the leaf village lotus blooms twice!",  # Naruto stuff begins from here
-    "{first} Joined! Omote renge!",
-    "{first}! I, Madara! declare you the strongest",
-    "{first}, this time I'll lend you my power. ",  # Kyuubi to naruto
-    "{first}, welcome to the hidden leaf village!",  # Naruto thingies end here
-    "In the jungle, you must wait...until the dice read five or eight.",  # Jumanji stuff
-    "Dr.{first} Famed archeologist and international explorer,\nWelcome to Jumanji!\nJumanji's Fate is up to you now.",
-    "{first}, this will not be an easy mission - monkeys slow the expedition.",  # End of Jumanji stuff
-    "Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot.",  # V for Vendetta
-    "The only verdict is vengeance; a vendetta, held as a votive not in vain, for the value and veracity of such shall one day vindicate the vigilant and the virtuous.",  # V for Vendetta
-    "Behind {first} there is more than just flesh. Beneath this user there is an idea... and ideas are bulletproof.",  # V for Vendetta
-    "Love your rage, not your cage.",  # V for Vendetta
-    "Get your stinking paws off me, you damned dirty ape!",  # Planet of the apes
-    "Elementary, my dear {first}.",
-    "I'm back - {first}.",
-    "Bond. {first} Bond.",
-    "Come with me if you want to live",
+    "Selamat datang ayo kita berbahagia!",  # Tokyo Ghoul
+    "{first} telah datang, ayo kita sambut.",  # op
+    "{first} Baru bergabung! Salam kenal!",  # Op
+    "Hai {first} welcome",
+    "Hai {first}, I love you!",  # Naruto stuff begins from here
+    "{first} bergabung, ambil dulu casan!",
+    "{first}! Saya Ochobot, salam kenal",
+    "{first}, kali ini aku akan meminjamkanmu kekuatanku, semangatlah kawan. ",  # Kyuubi to naruto
+    "{first}, welcome to grup kaga jelas ini!",  # Naruto thingies end here
+    "hai {first} aku lelah, beri aku motivasi.",  # Jumanji stuff
+    "Dr.{first} Arkeolog terkenal dan penjelajah internasional,\nWelcome to Jumanji!\nNasib Jumanji terserah Anda sekarang.",
+    "{first}, ini tidak akan menjadi misi yang mudah. Monyet diatas memperlambat ekspedisi.",  # End of Jumanji stuff
+    "Hai {first} sesakit apapun kamu, jangan pernah berharap sama manusia yah.",  # V for Vendetta
+    "Makan, makan, makan dan jangan lupa makan.",  # V for Vendetta
+    "Di kepala {first} ada beberapa ide menarik, ayo bagikan ide-idemu disini.",  # V for Vendetta
+    "Cintai amarahmu, bukan sangkarmu.",  # V for Vendetta
+    "Cintai dirimu dulu sebelum mencintai orang lain",  # Planet of the apes
+    "Dasar, akhirnya gabung juga kamu {first}.",
+    "Saya kembali - {first}. Welcome.",
+    "Hai {first} makanlah yang banyak biar gemuk.",
+    "500-8 = ... ?",
 ]
 DEFAULT_GOODBYE_MESSAGES = [
     "{first} will be missed.",
