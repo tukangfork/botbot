@@ -775,7 +775,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                "👋 Hi friends, I'm alive.",
+                "Ochobot diaktifkan.",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
