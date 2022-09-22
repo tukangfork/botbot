@@ -42,7 +42,7 @@ async def _(event):
 
             event.chat.id, 
 
-            caption="Nih Asupan nya Kak 🥵", 
+            caption="Nih Asupan nya Kak 😬", 
 
             file=pantek
 
@@ -52,4 +52,4 @@ async def _(event):
 
     except Exception:
 
-        await memeks.edit("Asupannya gaada komsol")
+        await memeks.edit("Asupannya gaada Kak 😜")
