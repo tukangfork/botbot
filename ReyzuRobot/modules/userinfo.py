@@ -180,12 +180,12 @@ def get_id(update: Update, context: CallbackContext):
 
     elif chat.type == "private":
         msg.reply_text(
-            f"Your id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML,
+            f"ID Anda adalah <code>{chat.id}</code>.", parse_mode=ParseMode.HTML,
         )
 
     else:
         msg.reply_text(
-            f"This group's id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML,
+            f"ID Grup ini adalah <code>{chat.id}</code>.", parse_mode=ParseMode.HTML,
         )
 
 
