@@ -610,7 +610,7 @@ def left_member(update: Update, context: CallbackContext):  # sourcery no-metric
             # Give the owner a special goodbye
             if left_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
-                    "Maaf penciptaku baru saja pergi :(", reply_to_message_id=reply
+                    "Ada apa ini, penciptaku baru saja pergi :(", reply_to_message_id=reply
                 )
                 return
 
@@ -687,8 +687,8 @@ def welcome(update: Update, context: CallbackContext):
         noformat = True
         pref, welcome_m, cust_content, welcome_type = sql.get_welc_pref(chat.id)
         update.effective_message.reply_text(
-            f"This chat has it's welcome setting set to: `{pref}`.\n"
-            f"*The welcome message (not filling the {{}}) is:*",
+            f"Obrolan ini memiliki pengaturan sambutan yang disetel ke: `{pref}`.\n"
+            f"*Pesan selamat datang (tidak mengisi {{}}) ke :*",
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -810,7 +810,7 @@ def set_welcome(update: Update, context: CallbackContext) -> str:
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#SET_WELCOME\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"Set the welcome message."
+        f"Setel pesan welcome."
     )
 
 
@@ -842,7 +842,7 @@ def set_goodbye(update: Update, context: CallbackContext) -> str:
     text, data_type, content, buttons = get_welcome_type(msg)
 
     if data_type is None:
-        msg.reply_text("You didn't specify what to reply with!")
+        msg.reply_text("Anda tidak menentukan apa yang harus dibalas!")
         return ""
 
     sql.set_custom_gdbye(chat.id, content or text, data_type, buttons)
@@ -890,7 +890,7 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"#WELCOME_MUTE\n"
                 f"<b>• Admin:</b> {mention_html(user.id, user.first_name)}\n"
-                f"Has toggled welcome mute to <b>OFF</b>."
+                f"Mengaktifkan mute welcome ke <b>OFF</b>."
             )
         if args[0].lower() in ["soft"]:
             sql.set_welcome_mutes(chat.id, "soft")
@@ -901,7 +901,7 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"#WELCOME_MUTE\n"
                 f"<b>• Admin:</b> {mention_html(user.id, user.first_name)}\n"
-                f"Has toggled welcome mute to <b>SOFT</b>."
+                f"Telah mengaktifkan mute welcome ke <b>SOFT</b>."
             )
         if args[0].lower() in ["strong"]:
             sql.set_welcome_mutes(chat.id, "strong")
@@ -912,7 +912,7 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"#WELCOME_MUTE\n"
                 f"<b>• Admin:</b> {mention_html(user.id, user.first_name)}\n"
-                f"Has toggled welcome mute to <b>STRONG</b>."
+                f"Telah mengaktifkan mute welcome ke <b>STRONG</b>."
             )
         if args[0].lower() in ["captcha"]:
             sql.set_welcome_mutes(chat.id, "captcha")
@@ -923,7 +923,7 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"#WELCOME_MUTE\n"
                 f"<b>• Admin:</b> {mention_html(user.id, user.first_name)}\n"
-                f"Has toggled welcome mute to <b>CAPTCHA</b>."
+                f"Telah mengaktifkan mute welcome ke <b>CAPTCHA</b>."
             )
         msg.reply_text(
             "Silakan masukkan `off`/`no`/`soft`/`strong`/`captcha`!",
@@ -950,33 +950,33 @@ def clean_welcome(update: Update, context: CallbackContext) -> str:
         clean_pref = sql.get_clean_pref(chat.id)
         if clean_pref:
             update.effective_message.reply_text(
-                "Saya harus menghapus pesan selamat datang hingga dua hari."
+                "Saya harus menghapus pesan welcome hingga dua hari."
             )
         else:
             update.effective_message.reply_text(
-                "Saat ini saya tidak menghapus pesan selamat datang lama!"
+                "Saat ini saya tidak menghapus pesan welcome datang lama!"
             )
         return ""
 
     if args[0].lower() in ("on", "yes"):
         sql.set_clean_welcome(str(chat.id), True)
-        update.effective_message.reply_text("I'll try to delete old welcome messages!")
+        update.effective_message.reply_text("Saya akan mencoba menghapus pesan welcome yang lama!")
         return (
             f"<b>{html.escape(chat.title)}:</b>\n"
             f"#CLEAN_WELCOME\n"
             f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-            f"Has toggled clean welcomes to <code>ON</code>."
+            f"Beralih mode clean welcomes ke <code>ON</code>."
         )
     if args[0].lower() in ("off", "no"):
         sql.set_clean_welcome(str(chat.id), False)
-        update.effective_message.reply_text("I won't delete old welcome messages.")
+        update.effective_message.reply_text("Saya tidak akan menghapus pesan welcome yang lama.")
         return (
             f"<b>{html.escape(chat.title)}:</b>\n"
             f"#CLEAN_WELCOME\n"
             f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-            f"Has toggled clean welcomes to <code>OFF</code>."
+            f"Beralih mode clean welcomes ke <code>OFF</code>."
         )
-    update.effective_message.reply_text("I understand 'on/yes' or 'off/no' only!")
+    update.effective_message.reply_text("Saya mengerti 'on/yes' atau 'off/no' saja!")
     return ""
 
 
@@ -988,11 +988,11 @@ def cleanservice(update: Update, context: CallbackContext) -> str:
         curr = sql.clean_service(chat.id)
         if curr:
             update.effective_message.reply_text(
-                "Layanan bersih selamat datang adalah : aktif", parse_mode=ParseMode.MARKDOWN
+                "Layanan bersih welcome : aktif", parse_mode=ParseMode.MARKDOWN
             )
         else:
             update.effective_message.reply_text(
-                "Selamat datang layanan bersih adalah : off", parse_mode=ParseMode.MARKDOWN
+                "Layanan bersih welcome : off", parse_mode=ParseMode.MARKDOWN
             )
 
     elif len(args) >= 1:
@@ -1005,11 +1005,11 @@ def cleanservice(update: Update, context: CallbackContext) -> str:
             update.effective_message.reply_text("Welcome clean service is : on")
         else:
             update.effective_message.reply_text(
-                "Invalid option", parse_mode=ParseMode.MARKDOWN
+                "Opsi tidak valid", parse_mode=ParseMode.MARKDOWN
             )
     else:
         update.effective_message.reply_text(
-            "Usage is on/yes or off/no", parse_mode=ParseMode.MARKDOWN
+            "Gunakan on/yes atau off/no", parse_mode=ParseMode.MARKDOWN
         )
 
 
@@ -1026,7 +1026,7 @@ def user_button(update: Update, context: CallbackContext):
         sql.set_human_checks(user.id, chat.id)
         member_dict = VERIFIED_USER_WAITLIST[(chat.id, user.id)]
         member_dict["status"] = True
-        query.answer(text="Yeet! You're a human, unmuted!")
+        query.answer(text="Yeet! Anda seorang manusia, unmuted!")
         bot.restrict_chat_member(
             chat.id,
             user.id,
