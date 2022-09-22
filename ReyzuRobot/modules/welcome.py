@@ -198,19 +198,19 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
-                    f"Welcome to {html.escape(chat.title)} my king.", reply_to_message_id=reply
+                    f"Selamat datang di {html.escape(chat.title)} developer Ochobot.", reply_to_message_id=reply
                 )
                 welcome_log = (
                     f"{html.escape(chat.title)}\n"
                     f"#USER_JOINED\n"
-                    f"My King just joined the chat"
+                    f"My developer baru saja bergabung"
                 )
                 continue
 
             # Welcome Devs
             if new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "Whoa! The Prince just joined!",
+                    "Wah! Pangeran baru saja bergabung!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -218,7 +218,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome Sudos
             if new_mem.id in DRAGONS:
                 update.effective_message.reply_text(
-                    "Huh! Emperor just joined! Stay Alert!",
+                    "Hah! Kaisar baru saja bergabung! Tetap waspada!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -226,7 +226,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome Support
             if new_mem.id in DEMONS:
                 update.effective_message.reply_text(
-                    "Huh! Someone with Captain just joined!",
+                    "Hah! Seorang Kapten baru saja bergabung!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -234,7 +234,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome WOLVES
             if new_mem.id in WOLVES:
                 update.effective_message.reply_text(
-                    "Oof! A Soldier Users just joined!", reply_to_message_id=reply
+                    "Wah! Prajurit baru saja bergabung!", reply_to_message_id=reply
                 )
                 continue
 
@@ -368,12 +368,12 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                     f"[{escape_markdown(new_mem.first_name)}](tg://user?id={user.id})"
                 )
                 message = msg.reply_text(
-                    f"{new_join_mem}, click the button below to prove you're human.\nYou have 120 seconds.",
+                    f"{new_join_mem}, klik tombol di bawah ini untuk membuktikan bahwa Anda manusia.\nAnda memiliki 120 detik.",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             {
                                 InlineKeyboardButton(
-                                    text="Yes, I'm human.",
+                                    text="Ya, saya manusia.",
                                     callback_data=f"user_join_({new_mem.id})",
                                 )
                             }
@@ -610,14 +610,14 @@ def left_member(update: Update, context: CallbackContext):  # sourcery no-metric
             # Give the owner a special goodbye
             if left_mem.id == OWNER_ID:
                 update.effective_message.reply_text(
-                    "Sorry to see you leave :(", reply_to_message_id=reply
+                    "Maaf penciptaku baru saja pergi :(", reply_to_message_id=reply
                 )
                 return
 
             # Give the devs a special goodbye
             if left_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "See you later at the Eagle Union!",
+                    "Sampai jumpa lagi di Eagle Union!",
                     reply_to_message_id=reply,
                 )
                 return
@@ -725,18 +725,18 @@ def welcome(update: Update, context: CallbackContext):
         if args[0].lower() in ("on", "yes"):
             sql.set_welc_preference(str(chat.id), True)
             update.effective_message.reply_text(
-                "Okay! I'll greet members when they join."
+                "Oke! Saya akan menyapa anggota ketika mereka bergabung."
             )
 
         elif args[0].lower() in ("off", "no"):
             sql.set_welc_preference(str(chat.id), False)
             update.effective_message.reply_text(
-                "I'll go loaf around and not welcome anyone then."
+                "Saya akan bermalas-malasan dan tidak menyambut siapa pun."
             )
 
         else:
             update.effective_message.reply_text(
-                "I understand 'on/yes' or 'off/no' only!"
+                "Saya mengerti 'on/yes' atau 'off/no' saja!"
             )
 
 
@@ -786,7 +786,7 @@ def goodbye(update: Update, context: CallbackContext):
         else:
             # idek what you're writing, say yes or no
             update.effective_message.reply_text(
-                "I understand 'on/yes' or 'off/no' only!"
+                "Saya mengerti 'on/yes' atau 'off/no' saja!"
             )
 
 
@@ -800,11 +800,11 @@ def set_welcome(update: Update, context: CallbackContext) -> str:
     text, data_type, content, buttons = get_welcome_type(msg)
 
     if data_type is None:
-        msg.reply_text("You didn't specify what to reply with!")
+        msg.reply_text("Anda tidak menentukan apa yang harus dibalas!")
         return ""
 
     sql.set_custom_welcome(chat.id, content, text, data_type, buttons)
-    msg.reply_text("Successfully set custom welcome message!")
+    msg.reply_text("Berhasil menyetel pesan selamat datang!")
 
     return (
         f"<b>{html.escape(chat.title)}:</b>\n"
@@ -822,14 +822,14 @@ def reset_welcome(update: Update, context: CallbackContext) -> str:
 
     sql.set_custom_welcome(chat.id, None, random.choice(sql.DEFAULT_WELCOME_MESSAGES), sql.Types.TEXT)
     update.effective_message.reply_text(
-        "Successfully reset welcome message to default!"
+        "Berhasil mengatur ulang pesan selamat datang ke default!"
     )
 
     return (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#RESET_WELCOME\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"Reset the welcome message to default."
+        f"Setel ulang pesan selamat datang ke default."
     )
 
 
@@ -846,12 +846,12 @@ def set_goodbye(update: Update, context: CallbackContext) -> str:
         return ""
 
     sql.set_custom_gdbye(chat.id, content or text, data_type, buttons)
-    msg.reply_text("Successfully set custom goodbye message!")
+    msg.reply_text("Berhasil mengatur pesan selamat tinggal kustom!")
     return (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#SET_GOODBYE\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"Set the goodbye message."
+        f"Mengatur pesan selamat tinggal."
     )
 
 
@@ -863,14 +863,14 @@ def reset_goodbye(update: Update, context: CallbackContext) -> str:
 
     sql.set_custom_gdbye(chat.id, random.choice(sql.DEFAULT_GOODBYE_MESSAGES), sql.Types.TEXT)
     update.effective_message.reply_text(
-        "Successfully reset goodbye message to default!"
+        "Berhasil mengatur ulang pesan selamat tinggal ke default!"
     )
 
     return (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#RESET_GOODBYE\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"Reset the goodbye message."
+        f"Setel ulang pesan selamat tinggal."
     )
 
 
@@ -885,7 +885,7 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
     if len(args) >= 1:
         if args[0].lower() in ("off", "no"):
             sql.set_welcome_mutes(chat.id, False)
-            msg.reply_text("I will no longer mute people on joining!")
+            msg.reply_text("Saya tidak akan lagi membisukan orang saat bergabung!")
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"#WELCOME_MUTE\n"
@@ -895,7 +895,7 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
         if args[0].lower() in ["soft"]:
             sql.set_welcome_mutes(chat.id, "soft")
             msg.reply_text(
-                "I will restrict users' permission to send media for 24 hours."
+                "Saya akan membatasi izin pengguna untuk mengirim media selama 24 jam."
             )
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
@@ -906,7 +906,7 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
         if args[0].lower() in ["strong"]:
             sql.set_welcome_mutes(chat.id, "strong")
             msg.reply_text(
-                "I will now mute people when they join until they prove they're not a bot.\nThey will have 120seconds before they get kicked."
+                "Sekarang saya akan membisukan orang ketika mereka bergabung sampai mereka membuktikan bahwa mereka bukan bot.\nMereka akan memiliki 120 detik sebelum mereka ditendang."
             )
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
@@ -917,7 +917,7 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
         if args[0].lower() in ["captcha"]:
             sql.set_welcome_mutes(chat.id, "captcha")
             msg.reply_text(
-                "I will now mute people when they join until they prove they're not a bot.\nThey have to solve a captcha to get unmuted."
+                "Sekarang saya akan membisukan orang ketika mereka bergabung sampai mereka membuktikan bahwa mereka bukan bot.\nMereka harus memecahkan captcha untuk mengaktifkan suara."
             )
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
@@ -926,13 +926,13 @@ def welcomemute(update: Update, context: CallbackContext) -> str:
                 f"Has toggled welcome mute to <b>CAPTCHA</b>."
             )
         msg.reply_text(
-            "Please enter `off`/`no`/`soft`/`strong`/`captcha`!",
+            "Silakan masukkan `off`/`no`/`soft`/`strong`/`captcha`!",
             parse_mode=ParseMode.MARKDOWN,
         )
         return ""
     curr_setting = sql.welcome_mutes(chat.id)
     reply = (
-        f"\n Give me a setting!\nChoose one out of: `off`/`no` or `soft`, `strong` or `captcha` only! \n"
+        f"\n Beri saya pengaturan!\nPilih salah satu dari: `off`/`no` atau `soft`, `strong` atau `captcha` saja! \n"
         f"Current setting: `{curr_setting}`"
     )
     msg.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
@@ -950,11 +950,11 @@ def clean_welcome(update: Update, context: CallbackContext) -> str:
         clean_pref = sql.get_clean_pref(chat.id)
         if clean_pref:
             update.effective_message.reply_text(
-                "I should be deleting welcome messages up to two days old."
+                "Saya harus menghapus pesan selamat datang hingga dua hari."
             )
         else:
             update.effective_message.reply_text(
-                "I'm currently not deleting old welcome messages!"
+                "Saat ini saya tidak menghapus pesan selamat datang lama!"
             )
         return ""
 
@@ -988,18 +988,18 @@ def cleanservice(update: Update, context: CallbackContext) -> str:
         curr = sql.clean_service(chat.id)
         if curr:
             update.effective_message.reply_text(
-                "Welcome clean service is : on", parse_mode=ParseMode.MARKDOWN
+                "Layanan bersih selamat datang adalah : aktif", parse_mode=ParseMode.MARKDOWN
             )
         else:
             update.effective_message.reply_text(
-                "Welcome clean service is : off", parse_mode=ParseMode.MARKDOWN
+                "Selamat datang layanan bersih adalah : off", parse_mode=ParseMode.MARKDOWN
             )
 
     elif len(args) >= 1:
         var = args[0]
         if var in ("no", "off"):
             sql.set_clean_service(chat.id, False)
-            update.effective_message.reply_text("Welcome clean service is : off")
+            update.effective_message.reply_text("Selamat datang layanan bersih adalah : off")
         elif var in ("yes", "on"):
             sql.set_clean_service(chat.id, True)
             update.effective_message.reply_text("Welcome clean service is : on")
