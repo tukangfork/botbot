@@ -80,8 +80,8 @@ def get(update, context, notename, show_none=True, no_format=False):
                 except BadRequest as excp:
                     if excp.message == "Message to forward not found":
                         message.reply_text(
-                            "This message seems to have been lost - I'll remove it "
-                            "from your notes list.",
+                            "Pesan ini sepertinya telah hilang - saya akan menghapusnya "
+                            "dari daftar catatan Anda.",
                         )
                         sql.rm_note(note_chat_id, notename)
                     else:
@@ -96,10 +96,10 @@ def get(update, context, notename, show_none=True, no_format=False):
                 except BadRequest as excp:
                     if excp.message == "Message to forward not found":
                         message.reply_text(
-                            "Looks like the original sender of this note has deleted "
-                            "their message - sorry! Get your bot admin to start using a "
-                            "message dump to avoid this. I'll remove this note from "
-                            "your saved notes.",
+                            "Sepertinya pengirim asli catatan ini telah dihapus "
+                            "pesan mereka - maaf! Minta admin bot Anda untuk mulai menggunakan "
+                            "dump pesan untuk menghindari hal ini. Saya akan menghapus catatan ini dari "
+                            "catatan Anda.",
                         )
                         sql.rm_note(note_chat_id, notename)
                     else:
@@ -197,24 +197,24 @@ def get(update, context, notename, show_none=True, no_format=False):
             except BadRequest as excp:
                 if excp.message == "Entity_mention_user_invalid":
                     message.reply_text(
-                        "Looks like you tried to mention someone I've never seen before. If you really "
-                        "want to mention them, forward one of their messages to me, and I'll be able "
-                        "to tag them!",
+                        "Sepertinya Anda mencoba menyebutkan seseorang yang belum pernah saya lihat sebelumnya. Jika Anda benar-benar "
+                        "ingin menyebutkan mereka, meneruskan salah satu pesan mereka kepada saya, dan saya akan dapat "
+                        "menandai mereka!",
                     )
                 elif FILE_MATCHER.match(note.value):
                     message.reply_text(
-                        "This note was an incorrectly imported file from another bot - I can't use "
-                        "it. If you really need it, you'll have to save it again. In "
-                        "the meantime, I'll remove it from your notes list.",
+                        "Catatan ini adalah file yang diimpor secara salah dari bot lain - saya tidak dapat menggunakan "
+                        "dia. Jika Anda benar-benar membutuhkannya, Anda harus menyimpannya lagi."
+                        "sementara itu, saya akan menghapusnya dari daftar catatan Anda.",
                     )
                     sql.rm_note(note_chat_id, notename)
                 else:
                     message.reply_text(
-                        "This note could not be sent, as it is incorrectly formatted. Ask in "
-                        f"@{SUPPORT_CHAT} if you can't figure out why!",
+                        "Catatan ini tidak dapat dikirim, karena formatnya salah. Tanyakan "
+                        f"@{SUPPORT_CHAT} jika Anda tidak tahu mengapa!",
                     )
                     LOGGER.exception(
-                        "Could not parse message #%s in chat %s",
+                        "Tidak dapat mengurai pesan #%s di obrolan %s",
                         notename,
                         str(note_chat_id),
                     )
@@ -279,24 +279,24 @@ def save(update: Update, context: CallbackContext):
     )
 
     msg.reply_text(
-        f"Yas! Added `{note_name}`.\nGet it with /get `{note_name}`, or `#{note_name}`",
+        f"Ya! Ditambahkan `{note_name}`.\nDapatkan dengan /get `{note_name}`, or `#{note_name}`",
         parse_mode=ParseMode.MARKDOWN,
     )
 
     if msg.reply_to_message and msg.reply_to_message.from_user.is_bot:
         if text:
             msg.reply_text(
-                "Seems like you're trying to save a message from a bot. Unfortunately, "
-                "bots can't forward bot messages, so I can't save the exact message. "
-                "\nI'll save all the text I can, but if you want more, you'll have to "
-                "forward the message yourself, and then save it.",
+                "Sepertinya Anda mencoba menyimpan pesan dari bot. Sayangnya, "
+                "bot tidak dapat meneruskan pesan bot, jadi saya tidak dapat menyimpan pesan persisnya. "
+                "\nSaya akan menyimpan semua teks yang saya bisa, tetapi jika Anda ingin lebih, Anda harus "
+                "teruskan pesan itu sendiri, lalu simpan.",
             )
         else:
             msg.reply_text(
-                "Bots are kinda handicapped by telegram, making it hard for bots to "
-                "interact with other bots, so I can't save this message "
-                "like I usually would - do you mind forwarding it and "
-                "then saving that new message? Thanks!",
+                "Bot agak cacat oleh telegram, sehingga sulit bagi bot untuk "
+                "berinteraksi dengan bot lain, jadi saya tidak dapat menyimpan pesan ini "
+                "seperti yang biasanya saya lakukan - apakah Anda keberatan meneruskannya dan "
+                "lalu simpan pesan baru itu? Terima kasih!",
             )
         return
 
@@ -354,23 +354,23 @@ def clearall_btn(update: Update, context: CallbackContext):
                 for notename in note_list:
                     note = notename.name.lower()
                     sql.rm_note(chat.id, note)
-                message.edit_text("Deleted all notes.")
+                message.edit_text("Menghapus semua catatan.")
             except BadRequest:
                 return
 
         if member.status == "administrator":
-            query.answer("Only owner of the chat can do this.")
+            query.answer("Hanya pemilik obrolan yang dapat melakukan ini.")
 
         if member.status == "member":
-            query.answer("You need to be admin to do this.")
+            query.answer("Anda harus menjadi admin untuk melakukan ini.")
     elif query.data == "notes_cancel":
         if member.status == "creator" or query.from_user.id in DRAGONS:
-            message.edit_text("Clearing of all notes has been cancelled.")
+            message.edit_text("Penghapusan semua catatan telah dibatalkan.")
             return
         if member.status == "administrator":
-            query.answer("Only owner of the chat can do this.")
+            query.answer("Hanya pemilik obrolan yang dapat melakukan ini.")
         if member.status == "member":
-            query.answer("You need to be admin to do this.")
+            query.answer("Anda harus menjadi admin untuk melakukan ini.")
 
 
 @connection_status
