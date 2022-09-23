@@ -55,7 +55,7 @@ def list_handlers(update, context):
     if not conn is False:
         chat_id = conn
         chat_name = dispatcher.bot.getChat(conn).title
-        filter_list = "*Filter in {}:*\n"
+        filter_list = "*Filter di {}:*\n"
     else:
         chat_id = update.effective_chat.id
         if chat.type == "private":
@@ -63,13 +63,13 @@ def list_handlers(update, context):
             filter_list = "*local filters:*\n"
         else:
             chat_name = chat.title
-            filter_list = "*Filters in {}*:\n"
+            filter_list = "*Filter di {}*:\n"
 
     all_handlers = sql.get_chat_triggers(chat_id)
 
     if not all_handlers:
         send_message(
-            update.effective_message, "No filters saved in {}!".format(chat_name)
+            update.effective_message, "Tidak ada filter yang disimpan di {}!".format(chat_name)
         )
         return
 
@@ -117,7 +117,7 @@ def filters(update, context):
     if not msg.reply_to_message and len(args) < 2:
         send_message(
             update.effective_message,
-            "Please provide keyboard keyword for this filter to reply with!",
+            "Harap masukkan kata kunci untuk membalas filter!",
         )
         return
 
@@ -125,7 +125,7 @@ def filters(update, context):
         if len(args) < 2:
             send_message(
                 update.effective_message,
-                "Please provide keyword for this filter to reply with!",
+                "Harap masukkan kata kunci untuk membalas filter!",
             )
             return
         else:
@@ -155,7 +155,7 @@ def filters(update, context):
         if not text:
             send_message(
                 update.effective_message,
-                "There is no note message - You can't JUST have buttons, you need a message to go with it!",
+                "Tidak ada pesan catatan - Anda perlu pesan untuk menggunakannya!",
             )
             return
 
@@ -177,7 +177,7 @@ def filters(update, context):
     elif not text and not file_type:
         send_message(
             update.effective_message,
-            "Please provide keyword for this filter reply with!",
+            "Harap berikan kata kunci untuk balasan filter ini!",
         )
         return
 
@@ -198,7 +198,7 @@ def filters(update, context):
         if (msg.reply_to_message.text or msg.reply_to_message.caption) and not text:
             send_message(
                 update.effective_message,
-                "There is no note message - You can't JUST have buttons, you need a message to go with it!",
+                "There is no note message - Anda perlu pesan untuk menggunakannya!",
             )
             return
 
@@ -239,13 +239,13 @@ def stop_filter(update, context):
             chat_name = chat.title
 
     if len(args) < 2:
-        send_message(update.effective_message, "What should i stop?")
+        send_message(update.effective_message, "Apa yang harus saya hentikan?")
         return
 
     chat_filters = sql.get_chat_triggers(chat_id)
 
     if not chat_filters:
-        send_message(update.effective_message, "No filters active here!")
+        send_message(update.effective_message, "Tidak ada filter yang aktif di sini!")
         return
 
     for keyword in chat_filters:
@@ -253,14 +253,14 @@ def stop_filter(update, context):
             sql.remove_filter(chat_id, args[1])
             send_message(
                 update.effective_message,
-                "Okay, I'll stop replying to that filter in *{}*.".format(chat_name),
+                "Oke, saya akan berhenti membalas filter itu di *{}*.".format(chat_name),
                 parse_mode=telegram.ParseMode.MARKDOWN,
             )
             raise DispatcherHandlerStop
 
     send_message(
         update.effective_message,
-        "That's not a filter - Click: /filters to get currently active filters.",
+        "Itu bukan filter - Klik : /filters untuk mendapatkan filter yang sedang aktif.",
     )
 
 
@@ -316,11 +316,11 @@ def reply_filter(update, context):
                         except BadRequest as excp:
                             if (
                                 excp.message
-                                == "Wrong remote file identifier specified: wrong padding in the string"
+                                == "Pengidentifikasi file jarak jauh yang salah ditentukan : padding yang salah dalam string"
                             ):
                                 context.bot.send_message(
                                     chat.id,
-                                    "Message couldn't be sent, Is the sticker id valid?",
+                                    "Pesan tidak dapat terkirim, Apakah id stiker valid?",
                                 )
                                 return
                             else:
@@ -449,14 +449,14 @@ def reply_filter(update, context):
                             try:
                                 send_message(
                                     update.effective_message,
-                                    "You seem to be trying to use an unsupported url protocol. "
-                                    "Telegram doesn't support buttons for some protocols, such as tg://. Please try "
-                                    "again...",
+                                    "Anda tampaknya mencoba menggunakan protokol url yang tidak didukung. "
+                                    "Telegram tidak mendukung tombol untuk beberapa protokol, seperti tg://. Silakan coba "
+                                    "lagi...",
                                 )
                             except BadRequest as excp:
                                 LOGGER.exception("Error in filters: " + excp.message)
                                 pass
-                        elif excp.message == "Reply message not found":
+                        elif excp.message == "Pesan balasan tidak ditemukan":
                             try:
                                 context.bot.send_message(
                                     chat.id,
@@ -502,7 +502,7 @@ def rmall_filters(update, context):
     member = chat.get_member(user.id)
     if member.status != "creator" and user.id not in DRAGONS:
         update.effective_message.reply_text(
-            "Only the chat owner can clear all notes at once."
+            "Hanya pemilik obrolan yang dapat menghapus semua catatan sekaligus."
         )
     else:
         buttons = InlineKeyboardMarkup(
@@ -516,7 +516,7 @@ def rmall_filters(update, context):
             ]
         )
         update.effective_message.reply_text(
-            f"Are you sure you would like to stop ALL filters in {chat.title}? This action cannot be undone.",
+            f"Apakah Anda yakin ingin menghentikan semua filter masuk? {chat.title}? Tindakan ini tidak bisa dibatalkan.",
             reply_markup=buttons,
             parse_mode=ParseMode.MARKDOWN,
         )
@@ -531,7 +531,7 @@ def rmall_callback(update, context):
         if member.status == "creator" or query.from_user.id in DRAGONS:
             allfilters = sql.get_chat_triggers(chat.id)
             if not allfilters:
-                msg.edit_text("No filters in this chat, nothing to stop!")
+                msg.edit_text("Tidak ada filter disimpan di obrolan ini, tidak ada yang berhenti!")
                 return
 
             count = 0
@@ -546,32 +546,32 @@ def rmall_callback(update, context):
             msg.edit_text(f"Cleaned {count} filters in {chat.title}")
 
         if member.status == "administrator":
-            query.answer("Only owner of the chat can do this.")
+            query.answer("Hanya pemilik obrolan yang dapat melakukan ini.")
 
         if member.status == "member":
-            query.answer("You need to be admin to do this.")
+            query.answer("Anda harus menjadi admin untuk melakukan ini.")
     elif query.data == "filters_cancel":
         if member.status == "creator" or query.from_user.id in DRAGONS:
-            msg.edit_text("Clearing of all filters has been cancelled.")
+            msg.edit_text("Penghapusan semua filter telah dibatalkan.")
             return
         if member.status == "administrator":
-            query.answer("Only owner of the chat can do this.")
+            query.answer("Hanya pemilik obrolan yang dapat melakukan ini.")
         if member.status == "member":
-            query.answer("You need to be admin to do this.")
+            query.answer("Anda harus menjadi admin untuk melakukan ini.")
 
 
 # NOT ASYNC NOT A HANDLER
 def get_exception(excp, filt, chat):
-    if excp.message == "Unsupported url protocol":
-        return "You seem to be trying to use the URL protocol which is not supported. Telegram does not support key for multiple protocols, such as tg: //. Please try again!"
-    elif excp.message == "Reply message not found":
+    if excp.message == "Protokol url tidak didukung":
+        return "Anda tampaknya mencoba menggunakan protokol URL yang tidak didukung. Telegram tidak mendukung kunci untuk beberapa protokol, seperti tg: //. Silakan coba lagi!"
+    elif excp.message == "Pesan balasan tidak ditemukan":
         return "noreply"
     else:
         LOGGER.warning("Message %s could not be parsed", str(filt.reply))
         LOGGER.exception(
-            "Could not parse filter %s in chat %s", str(filt.keyword), str(chat.id)
+            "Tidak dapat menguraikan filter %s dalam obrolan %s", str(filt.keyword), str(chat.id)
         )
-        return "This data could not be sent because it is incorrectly formatted."
+        return "Data ini tidak dapat dikirim karena formatnya salah."
 
 
 # NOT ASYNC NOT A HANDLER
@@ -579,7 +579,7 @@ def addnew_filter(update, chat_id, keyword, text, file_type, file_id, buttons):
     msg = update.effective_message
     totalfilt = sql.get_chat_triggers(chat_id)
     if len(totalfilt) >= 150:  # Idk why i made this like function....
-        msg.reply_text("This group has reached its max filters limit of 150.")
+        msg.reply_text("Grup ini telah mencapai batas filter maksimal 150.")
         return False
     else:
         sql.new_add_filter(chat_id, keyword, text, file_type, file_id, buttons)
@@ -603,7 +603,7 @@ def __migrate__(old_chat_id, new_chat_id):
 
 def __chat_settings__(chat_id, user_id):
     cust_filters = sql.get_chat_triggers(chat_id)
-    return "There are `{}` custom filters here.".format(len(cust_filters))
+    return "Ada `{}` filter khusus di sini.".format(len(cust_filters))
 
 
 __help__ = """
