@@ -84,14 +84,14 @@ def get_readable_time(seconds: int) -> str:
 
 
 HELP_STRINGS = """
-Click on the button bellow to get description about specifics command."""
+Klik tombol di bawah ini untuk mendapatkan deskripsi tentang perintah spesifik."""
 
 REYZU_IMG = "https://telegra.ph/file/5ffffa59ab0d812b81734.jpg"
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @Bukan_guudlooking \
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+DONATE_STRING = """Senang mendengar anda ingin berdonasi!
+ Anda dapat mendukung project ini dengan menghubungi @renaldivanhoten \
+ Pendukung tidak selalu finansial! \
+ Mereka yang tidak dapat memberikan dukungan moneter dipersilakan untuk membantu kami mengembangkan bot ini."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -155,7 +155,7 @@ def send_help(chat_id, text, keyboard=None):
 def test(update: Update, context: CallbackContext):
     # pprint(eval(str(update)))
     # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN)
-    update.effective_message.reply_text("This person edited a message")
+    update.effective_message.reply_text("Orang ini mengedit pesan")
     print(update.effective_message)
 
 
@@ -177,7 +177,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="Go Back", callback_data="help_back")
+                                    text="Kembali", callback_data="help_back")
                             ]
                         ]
                     ),
@@ -216,9 +216,9 @@ def start(update: Update, context: CallbackContext):
 
 
 def error_handler(update, context):
-    """Log the error and send a telegram message to notify the developer."""
+    """Catat kesalahan dan kirim pesan telegram untuk memberi tahu pengembang."""
     # Log the error before we do anything else, so we can see it even if something breaks.
-    LOGGER.error(msg="Exception while handling an update:", exc_info=context.error)
+    LOGGER.error(msg="Pengecualian saat menangani pembaruan :", exc_info=context.error)
 
     # traceback.format_exception returns the usual python message about an exception, but as a
     # list of strings rather than a single string, so we have to join them together.
@@ -229,7 +229,7 @@ def error_handler(update, context):
 
     # Build the message with some markup and additional information about what happened.
     message = (
-        "An exception was raised while handling an update\n"
+        "Pengecualian diajukan saat menangani pembaruan\n"
         "<pre>update = {}</pre>\n\n"
         "<pre>{}</pre>"
     ).format(
@@ -299,7 +299,7 @@ def help_button(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Go Back", callback_data="help_back")
+                                text="Kembali", callback_data="help_back")
                         ]
                     ]
                 ),
@@ -346,15 +346,15 @@ def reyzu_about_callback(update, context):
     query = update.callback_query
     if query.data == "reyzu_":
         query.message.edit_text(
-            text=f"I'm *{BOT_NAME}*, a powerful group management bot built to help you manage your group easily."
-            "\n❧ I can restrict users."
-            "\n❧ I can greet users with customizable welcome messages and even set a group's rules."
-            "\n❧ I have an advanced anti-flood system."
-            "\n❧ I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
-            "\n❧ I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
-            "\n❧ I check for admins' permissions before executing any command and more stuffs"
-            f"\n\n_{BOT_NAME}'s licensed under the GNU General Public License v3.0_"
-            f"\n\n Click on button bellow to get basic help for {BOT_NAME}.",
+            text=f"Saya *{BOT_NAME}*, bot manajemen grup yang yang dibuat untuk membantu Anda mengelola grup dengan mudah."
+            "\n❧ Saya dapat membatasi pengguna."
+            "\n❧ Saya dapat menyapa pengguna dengan pesan selamat datang yang dapat disesuaikan dan bahkan menetapkan aturan grup."
+            "\n❧ Saya memiliki sistem Anti-Flood yang canggih."
+            "\n❧ Saya dapat memperingatkan pengguna sampai mereka mencapai peringatan maksimal, dengan setiap tindakan yang telah ditentukan seperti warn, mute, kick, dll."
+            "\n❧ Saya memiliki sistem penyimpanan catatan, daftar hitam, dan bahkan balasan yang telah ditentukan pada kata kunci tertentu."
+            "\n❧ Saya memeriksa izin admin sebelum menjalankan perintah apa pun dan lebih banyak hal"
+            f"\n\n_{BOT_NAME}'s dilisensikan di bawah GNU General Public License v3.0_"
+            f"\n\n Klik tombol di bawah ini untuk mendapatkan bantuan dasar untuk {BOT_NAME}.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -371,7 +371,7 @@ def reyzu_about_callback(update, context):
                     InlineKeyboardButton(text="Musicplayer", callback_data="source_"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="reyzu_back"),
+                    InlineKeyboardButton(text="Kembali", callback_data="reyzu_back"),
                  ]
                 ]
             ),
@@ -393,36 +393,36 @@ def reyzu_about_callback(update, context):
 
     elif query.data == "reyzu_admin":
         query.message.edit_text(
-            text=f"*❧ Let's make your group bit effective now*"
-            "\nCongragulations, Reyzu Robot now ready to manage your group."
+            text=f"*❧ Mari buat grup Anda sedikit efektif sekarang*"
+            "\nSelamat, Saya sekarang siap untuk mengelola grup Anda."
             "\n\n*Admin Tools*"
-            "\nBasic Admin tools help you to protect and powerup your group."
-            "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
+            "\nBasic Admin tools membantu Anda melindungi dan memperkuat grup Anda."
+            "\nAnda dapat melarang anggota, Kick anggota, Promosikan seseorang sebagai admin melalui perintah bot."
             "\n\n*Greetings*"
-            "\nLets set a welcome message to welcome new users coming to your group."
-            "\nsend `/setwelcome [message]` to set a welcome message!",
+            "\nMari kita atur pesan selamat datang untuk menyambut pengguna baru yang datang ke grup Anda."
+            "\nkirim '/setwelcome [pesan]' untuk mengatur pesan selamat datang!",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="reyzu_")]]
+                [[InlineKeyboardButton(text="Kembali", callback_data="reyzu_")]]
             ),
         )
 
     elif query.data == "reyzu_notes":
         query.message.edit_text(
             text=f"<b>❧ Setting up notes</b>"
-            f"\nYou can save message/media/audio or anything as notes"
-            f"\nto get a note simply use # at the beginning of a word"
-            f"\n\nYou can also set buttons for notes and filters (refer help menu)",
+            f"\nAnda dapat menyimpan pesan / media / audio atau apa pun sebagai catatan"
+            f"\nuntuk mendapatkan catatan cukup gunakan # di awal kata"
+            f"\n\nAnda juga dapat mengatur tombol untuk catatan dan filter (lihat menu bantuan)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="reyzu_")]]
+                [[InlineKeyboardButton(text="Kembali", callback_data="reyzu_")]]
             ),
         )
     elif query.data == "reyzu_support":
         query.message.edit_text(
             text=f"*❧ {BOT_NAME} support chats*"
-            "\nJoin My Support Group/Channel for see or report a problem on ReyzuRobot.",
+            "\nBergabunglah dengan Grup/Saluran Dukungan Saya untuk melihat atau melaporkan masalah.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -431,7 +431,7 @@ def reyzu_about_callback(update, context):
                     InlineKeyboardButton(text="Updates", url=f"https://t.me/{SUPPORT_CHANNEL}"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="reyzu_"),
+                    InlineKeyboardButton(text="Kembali", callback_data="reyzu_"),
                  
                  ]
                 ]
@@ -442,7 +442,7 @@ def reyzu_about_callback(update, context):
     elif query.data == "reyzu_credit":
         query.message.edit_text(
             text=f"<b>❧ Credis for ReyzuRobot</b>\n"
-            f"\nHere Developers Making The ReyzuRobot",
+            f"\nDisini informasi pengembang",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -451,7 +451,7 @@ def reyzu_about_callback(update, context):
                     InlineKeyboardButton(text="x~b", url="t.me/Xbarok"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="reyzu_"),
+                    InlineKeyboardButton(text="Kembali", callback_data="reyzu_"),
                  
                  ]
                 ]
@@ -484,7 +484,7 @@ def Source_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="reyzu_")
+                    InlineKeyboardButton(text="Kembali", callback_data="reyzu_")
                  ]
                 ]
             ),
@@ -554,7 +554,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="Kembali", callback_data="help_back")]]
             ),
         )
 
