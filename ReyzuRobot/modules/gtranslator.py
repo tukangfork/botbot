@@ -38,7 +38,7 @@ trans = Translator()
 async def translate(_, message: Message) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
-        await message.reply_text("Reply to a message to translate it!")
+        await message.reply_text("Balas pesan untuk menerjemahkannya!")
         return
     if reply_msg.caption:
         to_translate = reply_msg.caption
@@ -57,7 +57,7 @@ async def translate(_, message: Message) -> None:
         dest = "en"
     translation = await trans(to_translate, sourcelang=source, targetlang=dest)
     reply = (
-        f"<b>Translated from {source} to {dest}</b>:\n"
+        f"<b>Terjemahan dari {source} ke {dest}</b>:\n"
         f"<code>{translation.text}</code>"
     )
 
