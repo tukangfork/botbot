@@ -128,7 +128,7 @@ DEFAULT_WELCOME_MESSAGES = [
     "Hoho! Dewa juubun chikazukanai youi",  # jojo jap ver
     "Welcome, {first}. Jangan sungkan untuk cerita ya",  # jojo
     "Berapa banyak roti yang telah Anda makan dalam hidup Anda?",  # jojo
-    "Kamu sudah makan belum {firs}!",  # jojo
+    "Kamu sudah makan belum {first}!",  # jojo
     "Siapa lagi ini, halo {first} salam kenal.",  # jojo
     "Rerorerorerorerorero.",  # jojo
     "{first} baru saja masuk ke grup.",
