@@ -54,7 +54,7 @@ DEFAULT_WELCOME_MESSAGES = [
     "Hai, {first}. Jangan cuma nyimak, ayo ikut nimbrung",
     "{first} kamu sudah ketinggalan party",
     "Pendatang baru nih!",  # Tekken
-    "Ok {firs} silahkan disimak!",
+    "Ok {first} silahkan disimak!",
     "{first} baru saja masuk ke obrolan!",
     "Sesuatu baru saja jatuh dari langit! - Oh itu {first}.",
     "{first} Baru saja dideportasi ke sini!",
