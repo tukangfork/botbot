@@ -55,7 +55,7 @@ async def couple(_, message):
 
             couple_selection_message = f"""**Pasangan hari ini :**
 {c1_mention} + {c2_mention} = ❤️
-__Pasangan baru hari ini dapat dipilih secara acak pada jam 00.00 {tomorrow}__"""
+__Pasangan baru hari ini dipilih secara acak pada jam 00.00 {tomorrow}__"""
             await app.send_message(message.chat.id, text=couple_selection_message)
             couple = {"c1_id": c1_id, "c2_id": c2_id}
             await save_couple(chat_id, today, couple)
